@@ -29,7 +29,8 @@ public class TestServiceImpl implements TestService {
     }
         @Override
         public String signUpUser(InsuranceUserDetailsRequest insuranceUserDetailsRequest){
-           return null;
+            System.out.println(insuranceUserDetailsRequest);
+        return null;
         }
     }
 

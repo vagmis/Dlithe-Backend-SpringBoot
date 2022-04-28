@@ -1,11 +1,10 @@
 package com.dlithe.controller;
 
 
+import com.dlithe.dto.InsuranceUserDetailsRequest;
 import com.dlithe.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -68,12 +67,15 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-    @GetMapping("banking/{bankName}")
+   @GetMapping("banking/{bankName}")
     public String detailsMethod(@PathVariable String bankName){
         return testService.fetchBankingDetails(bankName);
     }
 
-
+    @PostMapping("insurance-user")
+    public String signUpUserRegister(@RequestBody InsuranceUserDetailsRequest insuranceUserDetailsRequest){
+        return testService.signUpUser(insuranceUserDetailsRequest);
+    }
 
 }
 

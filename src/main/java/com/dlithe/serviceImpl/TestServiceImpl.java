@@ -1,5 +1,6 @@
 package com.dlithe.serviceImpl;
 
+import com.dlithe.dto.InsuranceUserDetailsRequest;
 import com.dlithe.service.TestService;
 import org.springframework.stereotype.Service;
 
@@ -7,10 +8,10 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements TestService {
 
     @Override
-    public String fetchBankingDetails(String bankName){
-        if(bankName != null){
+    public String fetchBankingDetails(String bankName) {
+        if (bankName != null) {
 
-            switch (bankName){
+            switch (bankName) {
                 case "One":
                     return "Canara Bank";
                 case "Two":
@@ -22,10 +23,15 @@ public class TestServiceImpl implements TestService {
                 default:
                     return "No Bank Found";
             }
-        }else{
+        } else {
             return "null";
         }
     }
-}
+        @Override
+        public String signUpUser(InsuranceUserDetailsRequest insuranceUserDetailsRequest){
+           return null;
+        }
+    }
+
 
 

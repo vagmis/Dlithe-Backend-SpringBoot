@@ -1,10 +1,12 @@
 package com.dlithe.controller;
 
 
+import com.dlithe.dto.InsuranceAgentDetailsRequest;
 import com.dlithe.dto.InsuranceUserDetailsRequest;
 import com.dlithe.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -76,6 +78,22 @@ public class TestController {
     public String signUpUserRegister(@RequestBody InsuranceUserDetailsRequest insuranceUserDetailsRequest){
         return testService.signUpUser(insuranceUserDetailsRequest);
     }
+
+    @PostMapping("insurance-agent-register")
+    public String insuranceNewAgent(@RequestBody InsuranceAgentDetailsRequest insuranceAgentDetailsRequest){
+       return testService.insuranceAgent(insuranceAgentDetailsRequest);
+    }
+
+  /*  @GetMapping("get-agent-details/{agentId}")
+    public InsuranceAgentDetailsRequest fetchAgentDetails(@PathVariable int agentId){
+        return testService.getAgentDetails(agentId);
+    }*/
+
+    @GetMapping("get-agent-details/{agentId}")
+    public InsuranceAgentDetailsRequest fetchAgentDetails(@PathVariable int agentId){
+       return testService.getAgentDetails(agentId);
+    }
+
 
 }
 

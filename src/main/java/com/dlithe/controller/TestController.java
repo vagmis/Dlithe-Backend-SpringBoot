@@ -84,6 +84,11 @@ public class TestController {
        return testService.insuranceAgent(insuranceAgentDetailsRequest);
     }
 
+  /*  @GetMapping("get-agent-details/{agentId}")
+    public InsuranceAgentDetailsRequest fetchAgentDetails(@PathVariable int agentId){
+        return testService.getAgentDetails(agentId);
+    }*/
+
     @GetMapping("get-agent-details/{agentId}")
     public InsuranceAgentDetailsRequest fetchAgentDetails(@PathVariable int agentId){
        return testService.getAgentDetails(agentId);

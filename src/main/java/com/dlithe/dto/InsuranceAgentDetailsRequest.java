@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -12,6 +14,8 @@ import lombok.ToString;
 
 public class InsuranceAgentDetailsRequest {
 
-        private String name;
+        private  String name;
         private String location;
+        /* add that DTO here to get */
+        private List<FeedbackResponse> feedbackResponse;
 }

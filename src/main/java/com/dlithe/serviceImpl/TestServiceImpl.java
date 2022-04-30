@@ -1,7 +1,7 @@
 package com.dlithe.serviceImpl;
 
 import com.dlithe.dto.FeedbackResponse;
-import com.dlithe.dto.InsuranceAgentDetailsRequest;
+import com.dlithe.dto.InsuranceAgentDetailsResponse;
 import com.dlithe.dto.InsuranceUserDetailsRequest;
 import com.dlithe.entity.Agent;
 import com.dlithe.repository.AgentDAO;
@@ -46,20 +46,25 @@ public class TestServiceImpl implements TestService {
         }
 
     @Override
-    public String insuranceAgent(InsuranceAgentDetailsRequest insuranceAgentDetailsRequest) {
+    public String insuranceAgent(InsuranceAgentDetailsResponse insuranceAgentDetailsResponse) {
         Agent agent = new Agent();
 
-        agent.setName(insuranceAgentDetailsRequest.getName());
-        agent.setLocation(insuranceAgentDetailsRequest.getLocation());
+        agent.setName(insuranceAgentDetailsResponse.getName());
+        agent.setLocation(insuranceAgentDetailsResponse.getLocation());
 
         agentDAO.save(agent);
         return "Agent added Successfully";
     }
 
     /*@Override
+    public InsuranceAgentDetailsRequest getAgentFeedback(int agentId) {
+        return null;
+    }*/
+
+    /*@Override
     public InsuranceAgentDetailsRequest getAgentDetails(int agentId) {
         Optional<Agent> agents = agentDAO.findById(agentId);
-
+            Agent agentLogin = agents.get()
         InsuranceAgentDetailsRequest agentDetails = new InsuranceAgentDetailsRequest();
         agentDetails.setName(agents.get().getName());
         agentDetails.setLocation(agents.get().getLocation());
@@ -67,31 +72,33 @@ public class TestServiceImpl implements TestService {
     }*/
 
     @Override
-    public InsuranceAgentDetailsRequest getAgentDetails(int agentId) {
+    public InsuranceAgentDetailsResponse getAgentDetails(int agentId) {
         FeedbackResponse feedbackResponse = new FeedbackResponse();
 
         List<FeedbackResponse> feedbackResponseList= new ArrayList<>();
         Optional<Agent> agents = agentDAO.findById(agentId);
 
-        InsuranceAgentDetailsRequest agentDetails = new InsuranceAgentDetailsRequest();
+        InsuranceAgentDetailsResponse agentDetails = new InsuranceAgentDetailsResponse();
         agentDetails.setName(agents.get().getName());
         agentDetails.setLocation(agents.get().getLocation());
 
         feedbackResponse.setFeedbackName("Murty");
         feedbackResponse.setFeedback("Hard worker");
-        feedbackResponse.setRating("5");
+        feedbackResponse.setRating(5);
         feedbackResponseList.add(feedbackResponse);
 
         FeedbackResponse feedbackResponse1 = new FeedbackResponse();
-        feedbackResponse1.setFeedbackName("Murty");
-        feedbackResponse1.setFeedback("Hard worker");
-        feedbackResponse1.setRating("5");
+        feedbackResponse1.setFeedbackName("Narayan");
+        feedbackResponse1.setFeedback("Smart worker");
+        feedbackResponse1.setRating(4);
         feedbackResponseList.add(feedbackResponse1);
 
 
         agentDetails.setFeedbackResponse(feedbackResponseList);
         return agentDetails;
     }
+
+
 
 
 }

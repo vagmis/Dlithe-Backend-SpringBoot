@@ -1,6 +1,5 @@
 package com.dlithe.dto;
 
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,9 +9,10 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class FeedbackResponse {
 
+public class FeedbackResponseList {
     private String feedbackName;
     private String feedback;
-    private int rating;
+    private String rating;
+
 }

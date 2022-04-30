@@ -10,9 +10,11 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class FeedbackResponse {
+public class SnapGramRegisterResponse {
 
-    private String feedbackName;
-    private String feedback;
-    private int rating;
+    // private int userId;
+    private String userName;
+    private int userAge;
+    private String userEmailId;
+
 }

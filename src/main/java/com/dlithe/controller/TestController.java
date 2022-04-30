@@ -1,7 +1,7 @@
 package com.dlithe.controller;
 
 
-import com.dlithe.dto.InsuranceAgentDetailsRequest;
+import com.dlithe.dto.InsuranceAgentDetailsResponse;
 import com.dlithe.dto.InsuranceUserDetailsRequest;
 import com.dlithe.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +80,8 @@ public class TestController {
     }
 
     @PostMapping("insurance-agent-register")
-    public String insuranceNewAgent(@RequestBody InsuranceAgentDetailsRequest insuranceAgentDetailsRequest){
-       return testService.insuranceAgent(insuranceAgentDetailsRequest);
+    public String insuranceNewAgent(@RequestBody InsuranceAgentDetailsResponse insuranceAgentDetailsResponse){
+       return testService.insuranceAgent(insuranceAgentDetailsResponse);
     }
 
   /*  @GetMapping("get-agent-details/{agentId}")
@@ -89,11 +89,11 @@ public class TestController {
         return testService.getAgentDetails(agentId);
     }*/
 
-    @GetMapping("get-agent-details/{agentId}")
-    public InsuranceAgentDetailsRequest fetchAgentDetails(@PathVariable int agentId){
+    // getting agent details and feedback
+    @GetMapping("get-agent-details-feedback/{agentId}")
+    public InsuranceAgentDetailsResponse fetchAgentDetails(@PathVariable int agentId){
        return testService.getAgentDetails(agentId);
     }
-
 
 }
 

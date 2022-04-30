@@ -12,10 +12,12 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 
-public class InsuranceAgentDetailsRequest {
+public class InsuranceAgentDetailsResponse {
 
         private  String name;
         private String location;
         /* add that DTO here to get */
         private List<FeedbackResponse> feedbackResponse;
+
+       // private FeedbackResponseList feedbackResponseList;
 }
